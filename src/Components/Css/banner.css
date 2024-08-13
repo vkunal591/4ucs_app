@@ -1,0 +1,84 @@
+.scroll-box {
+  overflow-x: scroll !important;
+  /* ms-overflow-style: none;  Internet Explorer 10+ */
+  /* scrollbar-width: none;  Firefox */
+}
+.scroll-box::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.scroll-container {
+  height: 35%;
+  margin: 20px 0px;
+  overflow: hidden;
+  display: flex;
+  width: max-content;
+  position: relative;
+}
+
+.straight {
+  animation: scroll-horizontal 20s linear infinite;
+  left: 50%;
+}
+
+.reverse {
+  animation: scroll-horizontal-reverse 20s linear infinite;
+  right: 200%;
+}
+
+
+.scroll-container img {
+  width: 120px;
+  height: 120px;
+  margin-left: 20px;
+  border-radius: 14px;
+}
+
+
+@keyframes scroll-horizontal {
+  0% {
+    left: 50%;
+  }
+  50%{
+    left: -100%;
+  }
+
+  100% {
+    left: -200%;
+  }
+}
+
+@keyframes scroll-horizontal-reverse {
+  0% {
+    right: 200%;
+  }
+
+  50% {
+    right: 100%;
+  }
+  100% {
+    right: 50%;
+  }
+
+}
+.scroll-container:hover,
+.scroll-container:hover ~ .scroll-container {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.scroll-container:hover {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.scroll-container:hover > .scroll-container:not(:hover) {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
